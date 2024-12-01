@@ -690,14 +690,9 @@ KBUILD_CFLAGS	+= -mllvm -regalloc-enable-advisor=release \
 KBUILD_LDFLAGS	+= -mllvm -regalloc-enable-advisor=release \
 		   -mllvm -enable-local-reassign
 KBUILD_LDFLAGS  += -mllvm -enable-ml-inliner=release
-KBUILD_CFLAGS   += -O3 -march=armv8.2-a+lse+crypto+dotprod -ffast-math -fno-trapping-math -fno-math-errno --cuda-path=/dev/null
+KBUILD_CFLAGS   += -O3 -march=armv8.2-a+lse+crypto+dotprod --cuda-path=/dev/null
 KBUILD_AFLAGS   += -O3 -march=armv8.2-a+lse+crypto+dotprod
 KBUILD_LDFLAGS  += -O3 --plugin-opt=O3
-KBUILD_CFLAGS   += -mcpu=cortex-a55 -mtune=cortex-a55
-KBUILD_AFLAGS   += -mcpu=cortex-a55 -mtune=cortex-a55
-ifeq ($(CONFIG_LD_IS_LLD), y)
-KBUILD_LDFLAGS  += -mllvm -mcpu=cortex-a55
-endif
 else
 KBUILD_CFLAGS   += -O2
 KBUILD_AFLAGS   += -O2
