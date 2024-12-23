@@ -693,8 +693,8 @@ KBUILD_LDFLAGS  += -mllvm -enable-ml-inliner=release
 KBUILD_CFLAGS   += -O3 -march=armv8.2-a+lse+crypto+dotprod -ffast-math -fno-trapping-math -fno-math-errno --cuda-path=/dev/null
 KBUILD_AFLAGS   += -O3 -march=armv8.2-a+lse+crypto+dotprod
 KBUILD_LDFLAGS  += -O3 --plugin-opt=O3
-KBUILD_CFLAGS   += -mcpu=cortex-a55 -mtune=cortex-a55
-KBUILD_AFLAGS   += -mcpu=cortex-a55 -mtune=cortex-a55
+KBUILD_CFLAGS   += -march=armv8.2-a+crypto+fp16+dotprod+nosve -mcpu=cortex-a55 -mtune=cortex-a55
+KBUILD_AFLAGS   += -march=armv8.2-a+crypto+fp16+dotprod+nosve -mcpu=cortex-a55 -mtune=cortex-a55
 ifeq ($(CONFIG_LD_IS_LLD), y)
 KBUILD_LDFLAGS  += -mllvm -mcpu=cortex-a55
 endif
